@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort String</title>
+</head>
+<body>
+    <label for="inputString">Enter a string: </label>
+    <input type="text" id="inputString">
+    <button onclick="sortString()">Sort</button>
+    <p id="result"></p>
+
+    <script>
+        function sortString() {
+            // Get the input value from the user
+            const inputElement = document.getElementById("inputString");
+            const inputString = inputElement.value;
+
+            // Check if the input string is not empty
+            if (inputString.trim() !== "") {
+                // Remove any non-alphabetic characters and convert the string to lowercase
+                const cleanString = inputString.replace(/[^a-zA-Z]/g, '').toLowerCase();
+
+                // Split the cleaned string into an array of characters, sort it, and join it back into a string
+                const sortedString = cleanString.split('').sort().join('');
+
+                // Display the sorted string on the web page
+                const resultElement = document.getElementById("result");
+                resultElement.textContent = "Alphabetically sorted string: " + sortedString;
+            } else {
+                alert("Please enter a valid string.");
+            }
+        }
+    </script>
+</body>
+</html>
